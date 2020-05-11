@@ -5,7 +5,7 @@ import tensorflow as tf
 hparams = tf.contrib.training.HParams(
 	# Comma-separated list of cleaners to run on text prior to training and eval. For non-English
 	# text, you may want to use "basic_cleaners" or "transliteration_cleaners".
-	cleaners='english_cleaners',
+    cleaners='basic_cleaners',
 
 
 	#If you only have 1 GPU or want to use only one GPU, please set num_gpus=0 and specify the GPU idx on run. example:
@@ -340,30 +340,28 @@ hparams = tf.contrib.training.HParams(
 	#Eval/Debug parameters
 	#Eval sentences (if no eval text file was specified during synthesis, these sentences are used for eval)
 	sentences = [
-	# From July 8, 2017 New York Times:
-	'Scientists at the CERN laboratory say they have discovered a new particle.',
-	'There\'s a way to measure the acute emotional intelligence that has never gone out of style.',
-	'President Trump met with other leaders at the Group of 20 conference.',
-	'The Senate\'s bill to repeal and replace the Affordable Care Act is now imperiled.',
-	# From Google's Tacotron example page:
-	'Generative adversarial network or variational auto-encoder.',
-	'Basilar membrane and otolaryngology are not auto-correlations.',
-	'He has read the whole thing.',
-	'He reads books.',
-	'He thought it was time to present the present.',
-	'Thisss isrealy awhsome.',
-	'The big brown fox jumps over the lazy dog.',
-	'Did the big brown fox jump over the lazy dog?',
-	"Peter Piper picked a peck of pickled peppers. How many pickled peppers did Peter Piper pick?",
-	"She sells sea-shells on the sea-shore. The shells she sells are sea-shells I'm sure.",
-	"Tajima Airport serves Toyooka.",
-	#From The web (random long utterance)
-	# 'On offering to help the blind man, the man who then stole his car, had not, at that precise moment, had any evil intention, quite the contrary, \
-	# what he did was nothing more than obey those feelings of generosity and altruism which, as everyone knows, \
-	# are the two best traits of human nature and to be found in much more hardened criminals than this one, a simple car-thief without any hope of advancing in his profession, \
-	# exploited by the real owners of this enterprise, for it is they who take advantage of the needs of the poor.',
-	# A final Thank you note!
-	'Thank you so much for your support!',
+	# From May 11, 2020 Le Monde:
+    # (https://www.lemonde.fr/m-styles/article/2020/05/11/le-tweed-un-aristocrate-parti-de-rien_6039338_4497319.html)
+	'Étoffe de la paysannerie irlandaise et écossaise, apte au labeur dans des', 
+    'conditions extrêmes, le tweed gagne la garde-robe de l’aristocratie anglaise', 
+    'à mesure que celle-ci rachète pour une bouchée de pain de vastes domaines', 
+    'qu’elle convertit tout au long du XIXe siècle en pavillons de chasse. Son', 
+    'réseau dense de nuances végétales camoufle ainsi une faune londonienne venue', 
+    'se fondre dans la bruyère et traquer loin du monde le canard, le renard, le',
+    'faisan, voire le cerf.'
+    # From Google's Tacotron example page (via Google translate):
+	'Réseau contradictoire génératif ou auto-encodeur variationnel.',
+	'a membrane basilaire et l\'oto-rhino-laryngologie ne sont pas des auto-corrélations',
+	'Il a tout lu.',
+	'Il lit des livres.',
+	'Il pensait qu\'il était temps de présenter le présent.',
+	'C\'est vrrraiment suuper.',
+	'Le gros renard brun saute par-dessus le chien paresseux.',
+	'Le gros renard brun a-t-il sauté par-dessus le chien paresseux?',
+	'Peter Piper a cueilli un pic de poivrons marinés. Combien de poivrons marinés Peter Piper a-t-il cueillis?',
+	'Elle vend des coquillages au bord de la mer. Les coquillages qu\'elle vend sont des coquillages, j\'en suis sûr.',
+	'Tajima Airport serves Toyooka.',
+	'L\'aéroport de Tajima dessert Toyooka.'
 	],
 
 	#Wavenet Debug
