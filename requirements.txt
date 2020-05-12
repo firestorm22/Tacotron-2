@@ -1,13 +1,16 @@
+python3.7-dev
 falcon==2.0.0
 inflect==4.1.0
 audioread==2.1.8
+numba==0.48.0
 librosa==0.7.2
 matplotlib==3.2.1
 numpy==1.18.4
 scipy==1.4.1
 tqdm==4.46.0
 Unidecode==1.1.1
-pyaudio==0.2.11
 sounddevice==0.3.12
+pyaudio
 lws
 keras
+tensorflow-gpu==1.15

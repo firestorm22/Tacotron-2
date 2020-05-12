@@ -57,7 +57,8 @@ def norm_data(args):
 			raise ValueError('Please enter a supported voice option to use from M-AILABS dataset! \n{}'.format(
 				supported_voices))
 
-		path = os.path.join(args.base_dir, args.language, 'by_book', args.voice)
+		# path = os.path.join(args.base_dir, args.language, 'by_book', args.voice)
+        path = os.path.join(args.base_dir, args.language, args.voice)
 		supported_readers = [e for e in os.listdir(path) if os.path.isdir(os.path.join(path,e))]
 		if args.reader not in supported_readers:
 			raise ValueError('Please enter a valid reader for your language and voice settings! \n{}'.format(
@@ -89,12 +90,12 @@ def main():
 	parser.add_argument('--base_dir', default='')
 	parser.add_argument('--hparams', default='',
 		help='Hyperparameter overrides as a comma-separated list of name=value pairs')
-	parser.add_argument('--dataset', default='LJSpeech-1.1')
-	parser.add_argument('--language', default='en_US')
-	parser.add_argument('--voice', default='female')
-	parser.add_argument('--reader', default='mary_ann')
+	parser.add_argument('--dataset', default='M-AILABS')
+	parser.add_argument('--language', default='fr_FR')
+	parser.add_argument('--voice', default='male')
+	parser.add_argument('--reader', default='zeckou')
 	parser.add_argument('--merge_books', default='False')
-	parser.add_argument('--book', default='northandsouth')
+	parser.add_argument('--book', default='l_ile_mysterieuse')
 	parser.add_argument('--output', default='training_data')
 	parser.add_argument('--n_jobs', type=int, default=cpu_count())
 	args = parser.parse_args()
